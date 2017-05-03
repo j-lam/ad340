@@ -108,7 +108,7 @@ public class RecyclerViewActivity extends AppCompatActivity {
 
         @Override
         public RecyclerViewAdapter.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-            View item = getLayoutInflater().inflate(R.layout.recyclerview_items, parent, false);
+            View item = getLayoutInflater().inflate(R.layout.list_item, parent, false);
             ViewHolder vh = new ViewHolder(item);
             return vh;
         }
