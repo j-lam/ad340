@@ -8,6 +8,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.GridView;
 import android.widget.Toast;
 
@@ -27,11 +28,13 @@ public class MainActivity extends AppCompatActivity {
 
         Button btnEnter = (Button)findViewById(R.id.btnEnter);
         btnEnter.setOnClickListener(new View.OnClickListener(){
-
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(MainActivity.this, FilterActivity.class);
-                startActivity(intent);
+                Intent message = new Intent(MainActivity.this, MessageActivity.class);
+                EditText textInput = (EditText) findViewById(R.id.editText);
+                String text = textInput.getText().toString();
+                message.putExtra("Input", text);
+                startActivity(message);
             }
         });
 

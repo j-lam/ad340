@@ -1,15 +1,21 @@
 package com.jenniferlam.jlam;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
+import android.widget.TextView;
 
-public class FilterActivity extends AppCompatActivity {
+public class MessageActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_filter);
+        setContentView(R.layout.activity_message);
+        Intent intent = getIntent();
+        String message = intent.getStringExtra("Input");
+        TextView txtView_Message= (TextView) findViewById(R.id.txtView_Message);
+        txtView_Message.setText(message);
         Log.d("My filter", "onCreate() method called");
     }
 

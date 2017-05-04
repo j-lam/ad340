@@ -4,22 +4,36 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.jenniferlam.jlam.FilterActivity">
+    tools:context="com.jenniferlam.jlam.MessageActivity">
 
     <TextView
-        android:id="@+id/textView2"
+        android:id="@+id/txtView_Message"
         android:layout_width="229dp"
         android:layout_height="81dp"
         android:layout_marginBottom="8dp"
         android:layout_marginLeft="42dp"
         android:layout_marginRight="8dp"
         android:layout_marginTop="175dp"
-        android:text="This is the the second activity page"
+        android:text="TextView"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintHorizontal_bias="0.257"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.0" />
+
+    <TextView
+        android:id="@+id/txtView_message_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="This is the second activity page"
+        android:textSize="24sp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginTop="8dp"
+        app:layout_constraintHorizontal_bias="0.509"
+        android:layout_marginBottom="8dp"
+        app:layout_constraintBottom_toTopOf="@+id/txtView_Message" />
 
 </android.support.constraint.ConstraintLayout>
