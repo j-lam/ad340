@@ -8,23 +8,27 @@
 
 
 
-
+    <include
+        layout="@layout/toolbar"
+        />
 
     <TextView
         android:id="@+id/txtHeader"
         android:layout_width="271dp"
         android:layout_height="79dp"
+        android:layout_above="@+id/txtDesc"
+        android:layout_alignParentEnd="true"
+        android:layout_marginBottom="15dp"
+        android:layout_marginEnd="40dp"
         android:text="About me"
-        android:textSize="60dp"
+        android:textAlignment="center"
+        android:textSize="36sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintHorizontal_bias="0.504"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.087"
-        android:layout_above="@+id/txtDesc"
-        android:layout_centerHorizontal="true"
-        android:layout_marginBottom="13dp" />
+        app:layout_constraintVertical_bias="0.087" />
 
     <TextView
         android:id="@+id/txtDesc"
@@ -37,9 +41,9 @@
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.344"
-        android:layout_above="@+id/btnEnter"
+        android:layout_above="@+id/editText"
         android:layout_alignStart="@+id/txtHeader"
-        android:layout_marginBottom="32dp" />
+        android:layout_marginBottom="12dp" />
 
     <Button
         android:id="@+id/btnEnter"
@@ -48,41 +52,45 @@
         android:text="Enter"
         android:layout_above="@+id/activity_main_gridView"
         android:layout_centerHorizontal="true"
-        android:layout_marginBottom="44dp" />
+        android:layout_marginBottom="14dp" />
 
     <GridView
         android:id="@+id/activity_main_gridView"
         android:layout_width="fill_parent"
         android:layout_height="125dp"
-        android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginBottom="32dp"
+        android:layout_marginBottom="19dp"
         android:columnWidth="90dp"
         android:gravity="center"
         android:horizontalSpacing="10dp"
         android:numColumns="2"
         android:stretchMode="columnWidth"
-        android:verticalSpacing="10dp" />
-
-    <android.support.v7.widget.Toolbar
-        android:id="@+id/toolbar"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:verticalSpacing="10dp"
+        android:layout_alignBottom="@+id/floatingActionButton"
         android:layout_alignParentStart="true"
-        android:layout_alignParentTop="true"
-        android:background="?attr/colorPrimary"
-        android:minHeight="?attr/actionBarSize"
-        app:theme="@style/ThemeOverlay.AppCompat.Dark"
-        app:popupTheme="@style/ThemeOverlay.AppCompat.Light"/>
+        android:layout_marginStart="10dp" />
 
     <EditText
         android:id="@+id/editText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_above="@+id/btnEnter"
-        android:layout_centerHorizontal="true"
         android:ems="10"
-        android:inputType="textPersonName"
-        android:text="Enter a message" />
+        android:inputType="text"
+        android:text="Enter a message"
+        android:layout_marginBottom="26dp"
+        android:layout_above="@+id/btnEnter"
+        android:layout_centerHorizontal="true" />
+
+
+
+    <android.support.design.widget.FloatingActionButton
+        android:id="@+id/floatingActionButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:clickable="true"
+        app:fabSize="mini"
+        app:srcCompat="@android:drawable/ic_dialog_email"
+        android:layout_marginBottom="21dp"
+        android:layout_alignParentBottom="true"
+        android:layout_alignEnd="@+id/txtDesc" />
 
 </RelativeLayout>

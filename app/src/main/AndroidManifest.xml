@@ -16,12 +16,20 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".MessageActivity"></activity>
+        <activity android:name=".MessageActivity"
+            android:parentActivityName=".MainActivity"
+            android:screenOrientation="portrait">
+
+        </activity>
         <activity android:name=".RecyclerViewActivity"
-            android:parentActivityName=".RecyclerViewActivity"
+            android:parentActivityName=".MainActivity"
             android:screenOrientation="portrait">
         </activity>
-        <activity android:name=".aboutActivity"></activity>
+        <activity android:name=".aboutActivity"
+            android:parentActivityName=".MainActivity"
+            android:screenOrientation="portrait">
+
+        </activity>
     </application>
 
 </manifest>

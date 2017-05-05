@@ -1,8 +1,7 @@
 package com.jenniferlam.jlam;
 
 import android.content.Context;
-import android.nfc.Tag;
-import android.util.Log;
+
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;

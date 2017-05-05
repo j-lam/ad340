@@ -2,11 +2,17 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
     <item
-        android:id="@+id/action_setting"
-        android:title="@string/menu_action_setting"
-        app:showAsAction="ifRoom"/>
-    <item
         android:id="@+id/action_about_us"
-        android:title="@string/menu_action_about_us"
-        app:showAsAction="never"/>
+        android:title="ABOUT US"
+        />
+    <item
+        android:id="@+id/recycleview1"
+        android:title="Recycler View"
+         />
+    <item
+        android:id="@+id/txtView_Message"
+        android:title="Message"
+         />
+
+
 </menu>
