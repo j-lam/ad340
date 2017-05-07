@@ -1,14 +1,19 @@
 package com.jenniferlam.jlam;
 
+import android.app.SearchManager;
 import android.content.Context;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.support.v7.widget.SearchView;
 import android.support.v7.widget.Toolbar;
 import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ArrayAdapter;
 import android.widget.TextView;
 
 
@@ -92,6 +97,8 @@ public class RecyclerViewActivity extends AppCompatActivity {
         recyclerViewAdapter = new RecyclerViewAdapter();
         recyclerView.setAdapter(recyclerViewAdapter);
 
+
+
     }
 
 
@@ -129,4 +136,5 @@ public class RecyclerViewActivity extends AppCompatActivity {
         }
 
     }
+
 }
