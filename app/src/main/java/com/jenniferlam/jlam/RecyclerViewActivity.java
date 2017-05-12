@@ -8,6 +8,7 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.SearchView;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -15,6 +16,17 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.TextView;
+
+import com.android.volley.RequestQueue;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.VolleyLog;
+import com.android.volley.toolbox.JsonArrayRequest;
+import com.android.volley.toolbox.Volley;
+
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
 
 
 /**
@@ -26,7 +38,11 @@ public class RecyclerViewActivity extends AppCompatActivity {
     RecyclerView recyclerView;
     RecyclerView.Adapter recyclerViewAdapter;
     RecyclerView.LayoutManager recyclerViewLayoutManager;
-    String[][] places = {
+
+
+    String[][] places = new String[24][2];
+
+   /* String[][] places = {
             {"New York", "New York"},
             {"Los Angeles", "California"},
             {"Chicago", "Illinois"},
@@ -77,7 +93,8 @@ public class RecyclerViewActivity extends AppCompatActivity {
             {"Wichita", "Kansas"},
             {"New Orleans", "Louisiana"},
             {"Arlington", "Texas"}
-    };
+    };*/
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -86,20 +103,56 @@ public class RecyclerViewActivity extends AppCompatActivity {
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
+
+        final TextView mTextView = (TextView) findViewById(R.id.txtRequest);
+        RequestQueue queue = Volley.newRequestQueue(this);
+        String url = "http://jlam.icoolshow.net/places.json";
+        JsonArrayRequest req = new JsonArrayRequest(url, new Response.Listener<JSONArray>() {
+            @Override
+            public void onResponse(JSONArray response) {
+                try {
+                    // Parsing json array response
+                    // loop through each json object
+                    String jsonResponse = "";
+                    for (int i = 0; i < response.length(); i++) {
+                        JSONObject place = (JSONObject) response.get(i);
+                        String city = place.getString("city");
+                        String state = place.getString("state");
+                        places[i][0] = city;
+                        places[i][1] = state;
+
+                        jsonResponse += city + " ";
+                        jsonResponse += state;
+                    }
+                    mTextView.setText(jsonResponse);
+
+
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
+            }
+        }, new Response.ErrorListener()
+
+        {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+            }
+        });
+        SingletonAdapter.getInstance(this).addToRequestQueue(req);
         context = getApplicationContext();
         recyclerView = (RecyclerView) findViewById(R.id.recycleview1);
         recyclerViewLayoutManager = new LinearLayoutManager(context);
 
-        recyclerViewLayoutManager = new LinearLayoutManager(this);
+
         recyclerView.setLayoutManager(recyclerViewLayoutManager);
 
 
         recyclerViewAdapter = new RecyclerViewAdapter();
         recyclerView.setAdapter(recyclerViewAdapter);
-
-
-
+        recyclerViewAdapter.notifyDataSetChanged();
     }
+
 
 
     public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapter.ViewHolder>{
