@@ -40,7 +40,7 @@ public class RecyclerViewActivity extends AppCompatActivity {
     RecyclerView.LayoutManager recyclerViewLayoutManager;
 
 
-    String[][] places = new String[24][2];
+    String[][] places = new String[50][2];
 
    /* String[][] places = {
             {"New York", "New York"},
@@ -104,7 +104,6 @@ public class RecyclerViewActivity extends AppCompatActivity {
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
-
         final TextView mTextView = (TextView) findViewById(R.id.txtRequest);
         RequestQueue queue = Volley.newRequestQueue(this);
         String url = "http://jlam.icoolshow.net/places.json";
@@ -126,7 +125,7 @@ public class RecyclerViewActivity extends AppCompatActivity {
                         jsonResponse += state;
                     }
                     mTextView.setText(jsonResponse);
-
+                    recyclerViewAdapter.notifyDataSetChanged();
 
                 } catch (JSONException e) {
                     e.printStackTrace();
@@ -139,18 +138,16 @@ public class RecyclerViewActivity extends AppCompatActivity {
             public void onErrorResponse(VolleyError error) {
             }
         });
-        SingletonAdapter.getInstance(this).addToRequestQueue(req);
+
         context = getApplicationContext();
         recyclerView = (RecyclerView) findViewById(R.id.recycleview1);
         recyclerViewLayoutManager = new LinearLayoutManager(context);
-
-
         recyclerView.setLayoutManager(recyclerViewLayoutManager);
-
-
         recyclerViewAdapter = new RecyclerViewAdapter();
         recyclerView.setAdapter(recyclerViewAdapter);
-        recyclerViewAdapter.notifyDataSetChanged();
+        SingletonAdapter.getInstance(this).addToRequestQueue(req);
+
+
     }
 
 
