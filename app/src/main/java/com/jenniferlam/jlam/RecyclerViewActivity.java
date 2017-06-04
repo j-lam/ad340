@@ -2,6 +2,7 @@ package com.jenniferlam.jlam;
 
 import android.app.SearchManager;
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
@@ -12,10 +13,12 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
@@ -150,7 +153,37 @@ public class RecyclerViewActivity extends AppCompatActivity {
 
     }
 
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        MenuInflater menuInflater = getMenuInflater();
+        menuInflater.inflate(R.menu.my_menu, menu);
+        return true;
+    }
 
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+
+        if (item.getItemId() == R.id.action_about_us) {
+
+            Intent about = new Intent(RecyclerViewActivity.this, aboutActivity.class);
+            startActivity(about);
+        }
+        if (item.getItemId() == R.id.recycleview1) {
+            Intent about = new Intent(RecyclerViewActivity.this, RecyclerViewActivity.class);
+            startActivity(about);
+        }
+        if (item.getItemId() == R.id.txtView_Message) {
+
+            Intent about = new Intent(RecyclerViewActivity.this, MessageActivity.class);
+            startActivity(about);
+        }
+        if (item.getItemId() == R.id.map) {
+
+            Intent about = new Intent(RecyclerViewActivity.this, MapsActivity.class);
+            startActivity(about);
+        }
+        return super.onOptionsItemSelected(item);
+    }
 
     public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapter.ViewHolder>{
 

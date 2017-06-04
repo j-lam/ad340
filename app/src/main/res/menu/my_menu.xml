@@ -14,5 +14,10 @@
         android:title="Message"
          />
 
+    <item
+        android:id="@+id/map"
+        android:title="Map"
+        />
+
 
 </menu>

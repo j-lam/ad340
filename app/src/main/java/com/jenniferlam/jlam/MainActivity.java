@@ -101,12 +101,27 @@ public class MainActivity extends AppCompatActivity {
             startActivity(about);
         }
         if(item.getItemId() == R.id.recycleview1) {
+            Toast.makeText(MainActivity.this,
+                    "You have clicked on RecycleView action menu",
+                    Toast.LENGTH_SHORT)
+                    .show();
             Intent about= new Intent(MainActivity.this, RecyclerViewActivity.class);
             startActivity(about);
         }
         if(item.getItemId() == R.id.txtView_Message) {
-
+            Toast.makeText(MainActivity.this,
+                    "You have clicked on Message action menu",
+                    Toast.LENGTH_SHORT)
+                    .show();
             Intent about= new Intent(MainActivity.this, MessageActivity.class);
+            startActivity(about);
+        }
+        if(item.getItemId() == R.id.map) {
+            Toast.makeText(MainActivity.this,
+                    "You have clicked on map action menu",
+                    Toast.LENGTH_SHORT)
+                    .show();
+            Intent about= new Intent(MainActivity.this, MapsActivity.class);
             startActivity(about);
         }
         return super.onOptionsItemSelected(item);
